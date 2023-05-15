@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài1:Tính tổng các số nguyên tố trong khoảng</title>
+</head>
+<body>
+    
+	
+</head>
+<body>
+	<h1>Tính tổng các số nguyên tố trong khoảng a và b</h1>
+	<form>
+		<label for="a">Nhập số a:</label>
+		<input type="number" id="a" name="a"><br><br>
+		<label for="b">Nhập số b:</label>
+		<input type="number" id="b" name="b"><br><br>
+		<button type="button" onclick="tinhTongSoNguyenTo()">Tính tổng</button>
+	</form>
+	<div id="ketQua"></div>
+
+	<script>
+		function tinhTongSoNguyenTo() {
+			var a = parseInt(document.getElementById("a").value);
+			var b = parseInt(document.getElementById("b").value);
+			var tong = 0;
+			for (var i = a; i <= b; i++) {
+				if (laSoNguyenTo(i)) {
+					tong += i;
+				}
+			}
+			document.getElementById("ketQua").innerHTML = "Tổng các số nguyên tố trong khoảng từ " + a + " đến " + b + " là " + tong;
+		}
+
+		function laSoNguyenTo(n) {
+			if (n < 2) {
+				return false;
+			}
+			for (var i = 2; i <= Math.sqrt(n); i++) {
+				if (n % i == 0) {
+					return false;
+				}
+			}
+			return true;
+		}
+	</script>
+
+
+</body>
+</html>
